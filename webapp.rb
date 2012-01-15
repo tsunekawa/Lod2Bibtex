@@ -3,6 +3,8 @@ require 'sinatra/base'
 require './lib/ndl_search'
 
 class NDLSearchApplication < Sinatra::Base
+  set :views,"./views"
+
   get '/' do
     "hello"
   end
