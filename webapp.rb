@@ -1,18 +1,15 @@
 $LOAD_PATH << File.expand_path(File.dirname(__FILE__))
-require 'sinatra/base'
+require 'sinatra'
 require './lib/ndl_search'
 
-class NDLSearchApplication < Sinatra::Base
-  set :views, File.join(File.expand_path(File.dirname(__FILE__)), %w{ views })
+get '/' do
+  "hello"
+end
+get '/bibtex' do
+  content_type 'text/plain'
 
-  get '/' do
-    "hello"
-  end
-  get '/bibtex' do
-    content_type 'text/plain'
-
-    id = params[:id]
-    @item = NdlSearch::Item.import(id)
-    erb @item.media_type.to_sym,{'Content-Type' => 'text/plain'}
-  end
+  id = params[:id]
+  @item = NdlSearch::Item.import(id)
+  p @item
+  erb @item.media_type.to_sym
 end
