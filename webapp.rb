@@ -13,6 +13,6 @@ class NDLSearchApplication < Sinatra::Base
 
     id = params[:id]
     @item = NdlSearch::Item.import(id)
-    erb @item.media_type.downcase.to_sym,{'Content-Type' => 'text/plain'}
+    erb @item.media_type.to_sym,{'Content-Type' => 'text/plain'}
   end
 end
