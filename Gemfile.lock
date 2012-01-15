@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    daemons (1.1.5)
+    eventmachine (0.12.10)
     mime-types (1.17.2)
     rack (1.4.0)
     rack-protection (1.2.0)
@@ -11,6 +13,10 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
+    thin (1.3.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     tilt (1.3.3)
 
 PLATFORMS
@@ -19,3 +25,4 @@ PLATFORMS
 DEPENDENCIES
   rest-client
   sinatra
+  thin

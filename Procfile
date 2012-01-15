@@ -1,1 +1,1 @@
-webapp: bundle exec rackup -p $PORT
+webapp: bundle exec thin start -p $PORT

@@ -1,6 +1,5 @@
 #! ruby -Ku
 # -*- coding:utf-8 -*-
-$KCODE = 'UTF8'
 
 require "rexml/document"
 require "rest-client"
