@@ -3,7 +3,7 @@ require 'sinatra/base'
 require './lib/ndl_search'
 
 class NDLSearchApplication < Sinatra::Base
-  set :views,"./views"
+  set :views, File.join(File.expand_path(File.dirname(__FILE__)), %w{ views })
 
   get '/' do
     "hello"
