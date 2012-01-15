@@ -1,0 +1,11 @@
+<% @items.each do |item| %>
+
+@book{<%= "#{item.author}:#{item.year}" %>, 
+  author="<%= item.author  %>",
+  title="<%= item.title %>",
+  publisher="<%= item.publisher %>",
+  year="<%= item.year %>",
+  pages="<%= item.pages %>",
+  }
+
+<% end %>
