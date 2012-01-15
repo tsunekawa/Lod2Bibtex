@@ -1,3 +1,4 @@
+$LOAD_PATH << File.expand_path(File.dirname(__FILE__))
 require './webapp'
 
-run BibtexApplication
+run NDLSearchApplication
