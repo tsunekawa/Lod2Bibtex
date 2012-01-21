@@ -1,0 +1,108 @@
+body
+{
+  font-family:Century, "MS ゴシック";
+  font-size:18px;
+  line-height:1.7em;
+  margin:0;
+  padding:0;
+}
+
+.header,
+.main,
+.footer
+{
+  margin-left:20%;
+  margin-right:20%;
+}
+
+.header
+{
+  padding:0.5em;
+  border-bottom:gray 2px solid;
+}
+
+.header h1,
+.header h2
+{
+  text-align:center;
+}
+
+.header h1
+{
+  font-size:300%;
+}
+
+.header h1 span
+{
+  font-size:inherit;
+}
+
+.header .main h2
+{
+  font-size:30px;
+  margin:0.5em;
+}
+
+.main
+{
+}
+
+.main #introduction,
+.main #howto
+{
+  padding:0.5em;
+}
+
+
+.main #introduction
+{
+  top:0;
+  left:0;
+}
+.main #howto
+{
+  top:0;
+  right:0;
+}
+
+.main li
+{
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+
+.bookmarklet
+{
+  display:block;
+  width:150px;
+  padding:1px;
+  border:black 1px solid;
+  text-align:center;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:16px;
+  background:#ccc;
+}
+
+.bookmarklet:hover
+{
+  background:blue;
+  color:white;
+}
+
+.footer
+{
+  margin-top:1em;
+  border-top:gray 2px solid;
+}
+.footer p
+{
+  font-size:100%;
+  padding:0 0.5em 0 0.5em;
+}
+.footer address
+{
+  font-style:normal;
+}
+
+

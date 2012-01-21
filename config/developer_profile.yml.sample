@@ -1,0 +1,8 @@
+developer:
+  name_en: "(developer's name in English)"
+  name_ja: "(開発者の名前)"
+  belonging_ja: "(所属)"
+  website:
+    name_ja: "(ウェブサイト名)"
+    url: "(ウェブサイトのURL)"
+  twitter: "(Twitterのアカウント名)"

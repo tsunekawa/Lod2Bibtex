@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="<%= @meta[:description] %>">
+    <meta name="author" content="<%= @meta[:author] %>">
+    <title>top - LOD2BibTeX</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>LOD<span style="color:red">2</span>BibTeX</h1>
+    </div>
+    <div class="main">
+
+      <div id="introduction">
+	<h2>LOD2BibTeXとは？</h2>
+	<p>Linked Open Dataに対応しているウェブサイト上の文献または書誌情報から情報を抽出し、BibTeX形式へ出力するウェブサービスです。</p>
+	<p>現在対応しているウェブサービスは以下の通りです。</p>
+	<ol>
+	  <li><a href="http://iss.ndl.go.jp/">国立国会図書館サーチ</a></li>
+	</ol>
+      </div>
+
+      <div id="howto">
+	<h2>使い方</h2>
+	<ol>
+	  <li>以下のリンクをブックマークツールバーにドラッグ&ドロップしてください。<br />
+	  <a class="bookmarklet" href="javascript:(function(){ document.location.href = 'http://<%= @bibtex_path %>?url='+document.location.href})();">LOD2BibTeX</a></li>
+          <li>国立国会図書館サーチにアクセスし、書籍を検索します。</li>
+	  <li>詳細書誌画面にて、ブックマークツールバーに貼り付けた「LOD2BibTeX」ボタンをクリックすると、BibTeXで書誌情報が出力されます。</li>
+        </ol>
+      </div>
+
+    </div>
+    <div class="footer">
+      <address>
+      <% unless @developer.nil? %>
+	<p>開発者: <a href='<%= @developer["website"]["url"] %>'><%= "#{ @developer["name_ja"] }( #{ @developer["name_en"]} )" %></a> /
+	   所属: <%= @developer["belonging_ja"] %> /
+	   Twitter: <a href="http://twitter.com/<%= @developer["twitter"] %>">@<%= @developer["twitter"] %></a></p>
+      <% end %>
+      </address>
+      <% unless @special_thanks.nil? %>
+        <p>スペシャルサンクス：<%= @special_thanks.join(",") %>
+      <% end %>
+    </div>
+  </body>
+</html>
