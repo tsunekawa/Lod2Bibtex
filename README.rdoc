@@ -6,4 +6,6 @@ Lod2BibtexはLinked Open Dataに対応したウェブサービスに掲載され
 
 本プログラムは http://bibtex.herokuapp.com にてウェブサービスとして使われています。
 
-なお、本プログラムはMITライセンスとします。
+= Licence
+
+本プログラムはMITライセンスとします。

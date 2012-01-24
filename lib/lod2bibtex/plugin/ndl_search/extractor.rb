@@ -1,22 +1,7 @@
 #!ruby
 # -*- coding:utf-8 -*-
 
-require "rexml/document"
-require "rest-client"
-
-module Lod2Bibtex::Extractor::NdlSearch
-
-  #
-  def import(url)
-    @source_no = /iss\.ndl\.go\.jp\/books\/([[:alnum:]\-]+)/.match(url)[1]
-    @source = source = get_rdf(@source_no)
-    @attr_names = [:author,:title,:publisher,:year,:month,:pages,:isbn,:url,:editor]
-    self
-  end
-
-  def label
-    "#{(author||editor)}:#{year}"
-  end
+module NdlSearch::Extractor
 
   def get_rdf(source_no)
     source = RestClient.get("http://iss.ndl.go.jp/books/"+source_no+".rdf")
@@ -46,21 +31,7 @@ module Lod2Bibtex::Extractor::NdlSearch
   end
 
   def author
-    creator = @source.text('//dcndl:BibResource/dc:creator').to_s
-    if /\[*著\]*/ =~ creator or /著|編|訳|翻訳/ !~ creator
-      @author ||= creator.gsub(/\s|著|編|訳|翻訳|\[|\]|\//,"")
-    else
-      @author ||= nil
-    end
-  end
-
-  def editor
-    creator = @source.text('//dcndl:BibResource/dc:creator').to_s
-    if /編$/ =~ creator then
-      @editor ||= creator.gsub(/\s|編/,"")
-    else
-      @editor ||= nil
-    end
+    @author ||= @source.text('//dc:creator').to_s.gsub(/\s|著|編|訳|翻訳|\[|\]|\//,"")
   end
 
   def isbn

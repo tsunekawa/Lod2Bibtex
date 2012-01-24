@@ -1,13 +1,22 @@
 #! ruby -Ku
 # -*- coding:utf-8 -*-
 
-class Lod2Bibtex::Resource
+require "rexml/document"
+require "rest-client"
+
+class NdlSearch::Item
+  include ::NdlSearch::Extractor
 
   #
-  def initialize(url)
-    @extractor = Lod2Bibtex::Extractor.resolve(url)
-    self.extend @extractor
-    import(url)
+  def self.import(source_no)
+    self.new.import(source_no)
+  end
+
+
+  #
+  def import(source_no)
+    @source = source = get_rdf(source_no)
+    @attr_names = [:author,:title,:publisher,:year,:month,:pages,:isbn,:url]
     self
   end
 
@@ -18,7 +27,7 @@ class Lod2Bibtex::Resource
       attribute(name, self.send(name))
     }
     type = self.material_types.first
-    label = self.label
+    label = "#{self.author}:#{self.year}"
     body = indent+(body.compact.join(",\n"+indent))
     "@#{type}{#{label}\n#{body}\n}"
   end
