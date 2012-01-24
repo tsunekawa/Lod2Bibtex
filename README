@@ -1,1 +1,9 @@
-== Introduction ==
+= Introduction
+
+Lod2BibtexはLinked Open Dataに対応したウェブサービスに掲載されている書誌情報を、BibTeX形式で出力するRubyスクリプトです。
+
+現在対応しているウェブサービスは国立国会図書館サーチのみですが、第３者が別のウェブサービスに対応する機能を追加できる機構になっています。詳しくは lib/extractor.rb を参照してください。
+
+本プログラムは http://bibtex.herokuapp.com にてウェブサービスとして使われています。
+
+なお、本プログラムはMITライセンスとします。
